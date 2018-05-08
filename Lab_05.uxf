@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>370</y>
+      <w>640</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>World
+--
+cx: int
+cy: int
+target: Vector2D
+agent: List&lt;Agent&gt;
+hunter: none
+paused: Boolean
+showInfo: boolean
+--
+init(self, cx: int, cy: int)
+update(self, delta: float/int)
+render(self)
+wrap_around(self, pos: Vector2D)
+transform_points(self, points: list, pos: Vector2D, forward: Vector2D, side: Vector2D, scale: Vector2D)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>170</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>main
+--
+on_mouse_press(x, y, button, modifiers)
+on_key_press(symbol, modifiers)
+on_resize(cx,cy)
+if __name__ == '__main__'
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>360</y>
+      <w>480</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>Agent
+--
+AGENT_MODES: dict&lt;int, string&gt;
+DECLERATION_SPEEDS: dict&lt;string, float&gt;
+world: none
+mode: none
+dir: float
+pos: Vector2D
+vel: Vector2D
+heading: Vector2D
+side: Vector2D
+scale: Vector2D
+acceleration: Vector2D
+mass: float
+max_speed: float
+color: string
+vehicle_shape: List&lt;Point2D&gt;
+--
+init(self, world: none, scale: float, mass: float, mode: string)
+calculate(self): Vector2D
+update(self, delta: float/int)
+render(self, color: none)
+speed(self): float
+seek(self, target_pos: Vector2D): Vector2D
+flee(self, hunter_pos: Vector2D): Vector2D
+arrive(self, target_pos: Vector2D, speed: float/string): Vector2D
+pursuit(self, evader): Vector2D
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>490</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>260</y>
+      <w>230</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;210.0;10.0</additional_attributes>
+  </element>
+</diagram>
